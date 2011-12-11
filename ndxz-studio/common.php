@@ -70,7 +70,7 @@ function &load_class($class, $instantiate = TRUE, $type, $internal = FALSE)
 	
 			if ($instantiate == TRUE)
 			{
-				$objects[$class] =& new $class();
+				$objects[$class] = new $class();
 			}
 			else
 			{
@@ -90,7 +90,7 @@ function &load_class($class, $instantiate = TRUE, $type, $internal = FALSE)
 
 			if ($instantiate == TRUE)
 			{
-				$objects[$class] =& new $class();
+				$objects[$class] = new $class();
 			}
 			else
 			{
@@ -137,12 +137,12 @@ function load_module_helper($file, $section)
 function show_error($message='')
 {
 	// we'll use the default language for this
-	$lang =& load_class('lang', TRUE, 'lib');
+	$lang = load_class('lang', TRUE, 'lib');
 	$lang->setlang(); // get the default strings
 	
 	$message = $lang->word($message);
 	
-	$error =& load_class('error', TRUE, 'lib');
+	$error = load_class('error', TRUE, 'lib');
 	header('Status: 503 Service Unavailable'); // change to right error note
 	echo $error->show_error($message);
 	exit;
@@ -153,7 +153,7 @@ function show_error($message='')
 function show_login($message='')
 {
 	// we'll use the default language for this
-	$lang =& load_class('lang',TRUE,'lib');
+	$lang = load_class('lang',TRUE,'lib');
 	$lang->setlang(); // get the default strings
 	
 	$login = "<form method='post' action=''>
@@ -167,7 +167,7 @@ function show_login($message='')
 	<p>".$lang->word($message)."&nbsp;</p>
 	</form>";
 	
-	$error =& load_class('error',TRUE,'lib');
+	$error = load_class('error',TRUE,'lib');
 	echo $error->show_login($login);
 	exit;
 }
@@ -189,6 +189,11 @@ function system_redirect($params='')
 function entry_uri($uri='', $server_uri)
 {
 	$url = $server_uri;
+
+	//keep on supporting links from when clean urls wasn't activated 
+	$url = str_replace('/index.php?', '', $url);
+	// support facebook obfuscated urls where there are slashes after a questionmark, e.g. http://localhost/index.php?%2Fposttitle%2F
+	$url = str_replace('%2F', '/', $url);
 
 	// remove any illegal chars first ' " $ * @
 	// remove non alpha chars (a-zA-Z0-9-/?# only)
