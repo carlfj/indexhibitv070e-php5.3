@@ -60,7 +60,7 @@ class Template
 	*/
 	function tpl_test($tpl)
 	{
-		$OBJ =& get_instance();
+		$OBJ = get_instance();
 
 		header ('Content-type: text/html; charset=utf-8');
 
@@ -279,7 +279,7 @@ class Template
 	{
 		global $go;
 		
-		$OBJ =& get_instance();
+		$OBJ = get_instance();
 		$out = '';
 		
 		if (!is_array($this->tpl_modules())) show_error('no menu created');
@@ -319,7 +319,7 @@ class Template
 			{
 				while (($module = readdir($fp)) !== false) 
 				{
-					if ((!eregi("^_",$module)) && (!eregi("^CVS$",$module)) && (!eregi(".php$",$module)) && (!eregi(".html$",$module)) && (!eregi(".DS_Store",$module)) && (!eregi("\.",$module)) && (!eregi("system",$module)))
+					if ( !preg_match("/^_|^CVS$|\.php$|\.html$|^\.DS_Store$|\.|system/i", $module) )
 					{      
 						$modules[] = $module;
 					}
@@ -342,7 +342,7 @@ class Template
 	*/
 	function tpl_prefs_nav()
 	{
-		$OBJ =& get_instance();
+		$OBJ = get_instance();
 		
 		$this->pref_nav['view'] = array(
 			'pref' => '<strong>' . $OBJ->lang->word('view site') . '</strong>', 'link' => BASEURL . '/', 'attr' => "class='prefs'");
@@ -368,7 +368,7 @@ class Template
 	*/
 	function tpl_indexhibit()
 	{
-		$OBJ =& get_instance();
+		$OBJ = get_instance();
 		return $OBJ->lang->word('indexhibit');
 	}
 	
@@ -406,7 +406,7 @@ class Template
 	function tpl_location()
 	{
 		global $go;
-		$OBJ =& get_instance();
+		$OBJ = get_instance();
 		
 		$addition = (isset($this->location)) ? ": $this->location": '';
 		
@@ -424,7 +424,7 @@ class Template
 	*/
 	function tpl_action()
 	{
-		$OBJ =& get_instance();
+		$OBJ = get_instance();
 		
 		//$color = ($this->action_error != '') ? 'action-error' : 'action';
 		
@@ -453,7 +453,7 @@ class Template
 	{
 		if ($this->sub_location == '') return;
 		
-		$OBJ =& get_instance();
+		$OBJ = get_instance();
 		
 		$out = '';
 		
@@ -514,7 +514,7 @@ class Template
 	{
 		if ($this->toggler == '') return;
 		
-		$OBJ =& get_instance();
+		$OBJ = get_instance();
 		
 		$out = '';
 		
@@ -542,7 +542,7 @@ class Template
 	*/
 	function tpl_paginate($row, $lim, $query, $string='')
 	{
-		$OBJ =& get_instance();
+		$OBJ = get_instance();
 		global $go;
 		
 		// not happy with this...
@@ -592,7 +592,7 @@ class Template
 	{
 		if ($this->pop_links == '') return;
 		
-		$OBJ =& get_instance();
+		$OBJ = get_instance();
 		
 		$out = '';
 		

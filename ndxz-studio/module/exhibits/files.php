@@ -5,7 +5,7 @@ function getSection($section='', $name, $attr='')
 {
 	global $default;
 	
-	$OBJ =& get_instance();
+	$OBJ = get_instance();
 	
 	$s = '';
 
@@ -25,7 +25,7 @@ function getSections()
 {
 	global $default;
 	
-	$OBJ =& get_instance();
+	$OBJ = get_instance();
 	
 	$s = '';
 
@@ -64,7 +64,7 @@ function getSections()
 
 function getSectionOrd($section='', $name, $attr='')
 {
-	$OBJ =& get_instance();
+	$OBJ = get_instance();
 	
 	$s = '';
 
@@ -81,7 +81,7 @@ function getSectionOrd($section='', $name, $attr='')
 
 function getProcessing($state, $name, $attr)
 {
-	$OBJ =& get_instance();
+	$OBJ = get_instance();
 	
 	if ($state == '') $state = 0;
 	
@@ -94,7 +94,7 @@ function getProcessing($state, $name, $attr)
 
 function getGeneric($state, $name, $attr)
 {
-	$OBJ =& get_instance();
+	$OBJ = get_instance();
 	
 	if ($state == '') $state = 0;
 	
@@ -107,7 +107,7 @@ function getGeneric($state, $name, $attr)
 
 function getOrganize($state, $name, $attr)
 {
-	$OBJ =& get_instance();
+	$OBJ = get_instance();
 	
 	if ($state == '') $state = 1;
 	
@@ -129,7 +129,8 @@ function getThemes($path, $default)
 		{
 			while (($module = readdir($fp)) !== false) 
 			{
-				if ((!eregi("^_", $module)) && (!eregi("^CVS$", $module)) && (!eregi(".php$", $module)) && (!eregi(".html$", $module)) && (!eregi(".DS_Store", $module)) && (!eregi("\.", $module)) && (!eregi("plugin", $module)) && (!eregi("css", $module)) && (!eregi("js", $module)) && (!eregi("img", $module)))
+				// I guess the following line shoul be: "...|^plugin$|^css$|^js$|^img$/i" instead, but I'm only updating code for PHP 5.3 compatability 
+				if ( !preg_match("/^_|^CVS$|\.php$|\.html$|^\.DS_Store$|\.|plugin|css|js|img/i", $module) )
 				{      
 					$modules[] = $module;
 				}
@@ -153,7 +154,7 @@ function getThemes($path, $default)
 
 function getPresent($path, $default)
 {
-	$OBJ =& get_instance();
+	$OBJ = get_instance();
 	
 	if ($OBJ->object['obj_mode'] == 1)
 	{
@@ -167,7 +168,7 @@ function getPresent($path, $default)
 			{
 				while (($module = readdir($fp)) !== false) 
 				{
-					if (eregi("^exhibit", $module))
+					if (preg_match("/^exhibit/", $module))
 					{
 						$modules[] = $module;
 					}
@@ -216,7 +217,7 @@ function getPresent($path, $default)
 
 function createFileBox($num)
 {
-	$OBJ =& get_instance();
+	$OBJ = get_instance();
 	
 	$s = label($OBJ->lang->word('image title') . span(' ' . $OBJ->lang->word('optional')));
 	
@@ -238,7 +239,7 @@ function createFileBox($num)
 
 function getExhibitImages($id)
 {
-	$OBJ =& get_instance();
+	$OBJ = get_instance();
 	
 	$body = "<ul id='boxes'>\n";
 	
@@ -271,7 +272,7 @@ function getExhibitImages($id)
 
 function getOnOff($input='', $attr='')
 {
-	$OBJ =& get_instance();
+	$OBJ = get_instance();
 	$onoff = array('on' => 1, 'off' => 0);
 	
 	$li = '';
@@ -290,7 +291,7 @@ function getOnOff($input='', $attr='')
 
 function getThumbSize($input='', $attr='')
 {
-	$OBJ =& get_instance();
+	$OBJ = get_instance();
 	global $default;
 	
 	$li = '';
@@ -307,7 +308,7 @@ function getThumbSize($input='', $attr='')
 
 function getImageSizes($input='', $attr='')
 {
-	$OBJ =& get_instance();
+	$OBJ = get_instance();
 	global $default;
 	
 	$li = '';

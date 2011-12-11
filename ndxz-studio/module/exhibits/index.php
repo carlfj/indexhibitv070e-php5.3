@@ -725,7 +725,7 @@ class Exhibits extends Router
 		global $go;
 		
 		// can we do this better?
-		$processor =& load_class('processor', TRUE, 'lib');
+		$processor = load_class('processor', TRUE, 'lib');
 	
 		$clean['title'] = $processor->process('title',array('notags', 'reqNotEmpty'));
 		$clean['section_id'] = $processor->process('section_id',array('notags', 'reqNotEmpty'));
@@ -770,7 +770,7 @@ class Exhibits extends Router
 		global $go;
 		
 		// can we do this better?
-		$processor =& load_class('processor', TRUE, 'lib');
+		$processor = load_class('processor', TRUE, 'lib');
 	
 		$clean['sec_desc'] = $processor->process('sec_desc',array('notags','reqNotEmpty'));
 		$clean['section'] = $processor->process('section',array('notags','reqNotEmpty'));
@@ -811,7 +811,7 @@ class Exhibits extends Router
 	{
 		global $go;
 		
-		$processor =& load_class('processor', TRUE, 'lib');
+		$processor = load_class('processor', TRUE, 'lib');
 		
 		$temp['hsec_ord'] = $processor->process('hsec_ord',array('digit'));
 		$temp['hsecid'] = $processor->process('hsecid',array('digit'));
@@ -890,7 +890,7 @@ class Exhibits extends Router
 	{
 		global $go;
 		
-		$processor =& load_class('processor', TRUE, 'lib');
+		$processor = load_class('processor', TRUE, 'lib');
 		
 		$temp['hsec_ord'] = $processor->process('hsec_ord',array('digit'));
 		
@@ -930,7 +930,7 @@ class Exhibits extends Router
 			
 		load_helper('output');
 		load_helper('romanize');
-		$URL =& load_class('publish', TRUE, 'lib');
+		$URL = load_class('publish', TRUE, 'lib');
 
 		// make the url
 		$URL->title = $rs['title'];
@@ -964,7 +964,7 @@ class Exhibits extends Router
 			if (($rs['report'] != 1) && ($rs['obj_apikey'] != '') 
 				&& ($rs['obj_email'] != '') && ($rs['sec_report'] == 1))
 			{
-				$REST =& load_class('rest', TRUE, 'lib');
+				$REST = load_class('rest', TRUE, 'lib');
 				$REST->apikey		= $rs['obj_apikey'];
 				$REST->email		= $rs['obj_email'];
 				$REST->id			= $rs['id'];
@@ -1010,7 +1010,7 @@ class Exhibits extends Router
 			return;
 		}
 		
-		$processor =& load_class('processor', TRUE, 'lib');
+		$processor = load_class('processor', TRUE, 'lib');
 	
 		$clean['hsection_id'] = $processor->process('hsection_id',array('notags','digit'));
 		$clean['hord'] = $processor->process('hord',array('notags','digit'));
@@ -1053,7 +1053,7 @@ class Exhibits extends Router
 	{
 		global $go;
 		
-		$processor =& load_class('processor', TRUE, 'lib');
+		$processor = load_class('processor', TRUE, 'lib');
 	
 		$clean['media_title'] = $processor->process('media_title', array('notags'));
 		$clean['media_caption'] = $processor->process('media_caption', array('nophp'));
@@ -1185,7 +1185,7 @@ class Exhibits extends Router
 		$dir = DIRNAME . BASEFILES . '/';
 		$types = $uploads['images'];
 		
-		$IMG =& load_class('media', TRUE, 'lib');
+		$IMG = load_class('media', TRUE, 'lib');
 		
 		$thetype = explode('.', strtolower($_FILES['jxbg']['name']));
 		$thetype = array_pop($thetype);
@@ -1254,7 +1254,7 @@ class Exhibits extends Router
 	{
 		global $go, $default;
 		
-		$processor =& load_class('processor', TRUE, 'lib');
+		$processor = load_class('processor', TRUE, 'lib');
 		load_helper('textprocess');
 	
 		$clean['obj_name'] = $processor->process('obj_name',array('notags','reqNotEmpty'));
@@ -1329,7 +1329,7 @@ class Exhibits extends Router
 		$OBJ->template->errors = TRUE;
 		
 		load_module_helper('files', $go['a']);
-		$IMG =& load_class('media', TRUE, 'lib');
+		$IMG = load_class('media', TRUE, 'lib');
 		
 		// we'll query for all our defaults first...
 		$rs = $this->db->fetchRecord("SELECT thumbs, images  
@@ -1346,7 +1346,7 @@ class Exhibits extends Router
 		$IMG->path = DIRNAME . GIMGS . '/';
 
 		load_helper('output');
-		$URL =& load_class('publish', TRUE, 'lib');
+		$URL = load_class('publish', TRUE, 'lib');
 			
 		// +++++++++++++++++++++++++++++++++++++++++++++++++++
 		
@@ -1479,7 +1479,7 @@ class Exhibits extends Router
 			FROM ".PX."objects    
 			WHERE id = '$clean[id]'");
 		
-		$processor =& load_class('processor', TRUE, 'lib');
+		$processor = load_class('processor', TRUE, 'lib');
 		load_helper('textprocess');
 		
 		$clean['content'] = $processor->process('content', array('nophp'));

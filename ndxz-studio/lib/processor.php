@@ -264,7 +264,7 @@ class Processor
 	function pchars()
 	{
 		// FIX LATER
-		$OBJ =& get_instance();
+		$OBJ = get_instance();
 		
 		if ($this->variable) 
 		{

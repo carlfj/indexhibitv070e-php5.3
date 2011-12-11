@@ -51,8 +51,20 @@ class Router extends Core
 		{
 			while (($module = readdir($fp)) !== false)
 			{
-				if ((!eregi("^_",$module)) && (!eregi("^CVS$",$module)) && (!eregi(".php$",$module)) && (!eregi(".html$",$module)) && (!eregi(".DS_Store",$module)) && (!eregi("\.",$module)))
-				{      
+/* 				if ((!eregi("^_",$module)) && (!eregi("^CVS$",$module)) && (!eregi(".php$",$module)) && (!eregi(".html$",$module)) && (!eregi(".DS_Store",$module)) && (!eregi("\.",$module))) */
+/*
+				if (
+					(!preg_match("/^_/", $module)) &&
+					(!preg_match("/^CVS$/i", $module)) &&
+					(!preg_match("/\.php$/i", $module)) &&
+					(!preg_match("/\.html$/i", $module)) &&
+					(!preg_match("/^\.DS_Store$/i", $module)) &&
+					(!preg_match("/\./", $module))
+				)
+*/
+				if ( !preg_match("/^_|^CVS$|\.php$|\.html$|^\.DS_Store$|\./i", $module) )
+
+				{
 					$modules[] = $module;
 				}
 			} 

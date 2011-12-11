@@ -5,7 +5,7 @@ function editorTools($content='', $advanced=FALSE, $additional='', $process='')
 {
 	global $go, $default;
 	
-	$OBJ =& get_instance();
+	$OBJ = get_instance();
 	
 	if ($OBJ->access->prefs['writing'] != 1) {
 		
@@ -90,7 +90,7 @@ function editorTools($content='', $advanced=FALSE, $additional='', $process='')
 function editorButtons($published='')
 {
 	global $go;
-	$OBJ =& get_instance();
+	$OBJ = get_instance();
 	
 	$published = (isset($published)) ? $published : '';
 

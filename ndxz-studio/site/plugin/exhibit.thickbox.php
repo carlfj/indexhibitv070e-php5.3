@@ -20,7 +20,7 @@ $exhibit['exhibit'] = createExhibit();
 
 function createExhibit()
 {
-	$OBJ =& get_instance();
+	$OBJ = get_instance();
 	global $rs;
 	
 	$pages = $OBJ->db->fetchArray("SELECT * 

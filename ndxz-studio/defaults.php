@@ -2,7 +2,7 @@
 
 // mod_rewrite is being used?
 // in case the server does not have mod_rewrite
-define('MODREWRITE', false);
+define('MODREWRITE', true);
 
 // image quality
 $default['img_quality'] = 100;
@@ -13,13 +13,13 @@ $default['ignore_ip'] = array();
 //////////// you won't normally need to edit anything below this line ////////////
 
 // darn quotes
-set_magic_quotes_runtime(0);
+//set_magic_quotes_runtime(0);
 
 // database prefix
 define('PX', 'ndxz_');
 
 // version
-define('VERSION', '0.70d');
+define('VERSION', '0.70e');
 
 // language default in case of error
 define('LANGUAGE', 'en-us');

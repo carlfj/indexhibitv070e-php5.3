@@ -33,7 +33,7 @@ load_helpers(array('html', 'entrance', 'time', 'server'));
 load_class('core', FALSE, 'lib');
 
 // "I'm digging for fire" - Pixies	
-$OBJ =& load_class('router', TRUE, 'lib');
+$OBJ = load_class('router', TRUE, 'lib');
 
 // are we logged in?
 $OBJ->access->checkLogin();
@@ -42,11 +42,11 @@ $OBJ->access->checkLogin();
 $OBJ->lang->setlang($OBJ->access->prefs['user_lang']);
 
 // loading our module object
-$INDX =& load_class($go['a'], TRUE, 'mod', TRUE);
+$INDX = load_class($go['a'], TRUE, 'mod', TRUE);
 
 // referencing wonkiness
 // review when there is time
-$aINDX =& $INDX;
+$aINDX = $INDX;
 
 // loading our module method
 $OBJ->tunnel($aINDX, $go['a'], $go['q']);

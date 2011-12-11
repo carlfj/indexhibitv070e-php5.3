@@ -3,7 +3,7 @@
 
 function getFiles()
 {
-	$OBJ =& get_instance();
+	$OBJ = get_instance();
 	global $go;
 	
 	$s = '';
@@ -43,7 +43,7 @@ function getFiles()
 
 function linksManager()
 {
-	$OBJ =& get_instance();
+	$OBJ = get_instance();
 	
 	$rs = $OBJ->db->fetchArray("SELECT title,url,sec_desc  
 		FROM ".PX."objects 
@@ -138,7 +138,7 @@ function filesManagerType($type, $file, $x='', $y='', $desc='')
 
 function createFileBox($num)
 {
-	$OBJ =& get_instance();
+	$OBJ = get_instance();
 	
 	$s = label($OBJ->lang->word('title') . span(' ' . $OBJ->lang->word('optional')));
 	
@@ -224,7 +224,7 @@ function getTimeFormat($default='', $name, $attr='')
 
 function getLanguage($default='', $name, $attr='')
 {
-	$OBJ =& get_instance();
+	$OBJ = get_instance();
 	
 	$s = '';
 
@@ -254,7 +254,7 @@ function getLanguage($default='', $name, $attr='')
 
 function getGeneric($state, $name, $attr)
 {
-	$OBJ =& get_instance();
+	$OBJ = get_instance();
 	
 	if ($state == '') $state = 0;
 	

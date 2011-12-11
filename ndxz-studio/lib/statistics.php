@@ -57,8 +57,9 @@ class Statistics
 		$stat['ref']		= (isset($_SERVER['HTTP_REFERER'])) ? $_SERVER['HTTP_REFERER'] : '';
 		$stat['url']		= parse_url($stat['ref']);
 		
-		$stat['domain']		= (isset($stat['url']['host'])) ?
-			eregi_replace("^www.", "", $stat['url']['host']) :
+		$stat['domain']		=
+			(isset($stat['url']['host'])) ?
+			preg_replace("/^www./i", "", $stat['url']['host']) :
 			'';
 		
 		$stat['uri']		= $_SERVER['REQUEST_URI'];
@@ -98,7 +99,7 @@ class Statistics
 	*/
 	function stat_getCountry($ip='')
 	{
-		$OBJ =& get_instance();
+		$OBJ = get_instance();
 	
 		if ($ip == '') return;
 	
@@ -179,14 +180,14 @@ class Statistics
 	
 		foreach ($platforms as $key => $test) 
 		{		
-			if (eregi($test, $ua)) $browser['platform'] = $key;
+			if (preg_match('/'.$test.'/i', $ua)) $browser['platform'] = $key;
 		}
 	
 		// this should probably be updated...
 		// add AppleWebkit
 		$browsers = array(
-			array('Netscape', 'Mozilla/4', 'Mozilla/([[:digit:]\.]+)'),
-			array('Mozilla', 'Mozilla/5', 'rv(:| )([[:digit:]\.]+)'),
+			array('Netscape', 'Mozilla\/4', 'Mozilla/([[:digit:]\.]+)'),
+			array('Mozilla', 'Mozilla\/5', 'rv(:| )([[:digit:]\.]+)'),
 			array('Safari', 'Safari', 'Safari/([[:digit:]\.]+)'),
 			array('Firefox', 'Firefox', 'Firefox/([[:digit:]\.]+)'),
 			array('Netscape', 'Netscape', 'Netscape[0-9]?/([[:digit:]\.]+)'),
@@ -200,7 +201,7 @@ class Statistics
 	
 		foreach ($browsers as $test) {
 		
-			if (eregi($test[1], $ua)) 
+			if (preg_match('/'.$test[1].'/i', $ua)) 
 			{
 				$browser['browser'] = $test[0];
 			}
@@ -218,7 +219,7 @@ class Statistics
 	*/
 	function stat_insertHit()
 	{
-		$OBJ =& get_instance();
+		$OBJ = get_instance();
 	
 		$stat = $this->stat_doStats();
 		

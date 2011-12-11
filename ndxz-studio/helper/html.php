@@ -7,7 +7,7 @@
 // works for select menus and some input fields
 function ips($title, $function, $name, $value='', $attr='', $type='', $subtitle='', $req='', $tag='', $tag_attr='', $extra='', $afterwards='')
 {
-	$OBJ =& get_instance();
+	$OBJ = get_instance();
 	
 	global $error_msg, $go;
 	
@@ -314,7 +314,7 @@ function helpurl($subject)
 // not being used
 function showHelp($title='')
 {
-	$OBJ =& get_instance();
+	$OBJ = get_instance();
 	
 	if ($OBJ->access->prefs['user_help'] == 1) 
 	{

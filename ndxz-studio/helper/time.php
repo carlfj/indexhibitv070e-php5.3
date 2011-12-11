@@ -6,7 +6,7 @@
 // time function for right now
 function getNow($now=TRUE)
 {
-	$OBJ =& get_instance();
+	$OBJ = get_instance();
 	
 	return ($now == TRUE) ?
 		date("Y-m-d H:i:s",time()) :

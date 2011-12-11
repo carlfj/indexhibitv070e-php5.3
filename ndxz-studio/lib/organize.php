@@ -18,7 +18,7 @@ class Organize
 	
 	function order()
 	{
-		$OBJ =& get_instance();
+		$OBJ = get_instance();
 
 		if ($this->obj_org == 1)
 		{
@@ -32,7 +32,7 @@ class Organize
 	
 	function chronological()
 	{
-		$OBJ =& get_instance();
+		$OBJ = get_instance();
 		global $go, $default;
 		
 		$body = '';
@@ -197,7 +197,7 @@ class Organize
 	
 	function sectional()
 	{
-		$OBJ =& get_instance();
+		$OBJ = get_instance();
 		global $go, $default;
 		
 		$body = '';

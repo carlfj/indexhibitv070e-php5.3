@@ -36,43 +36,43 @@ function load_plugins($path, $default)
 
 function front_index()
 {
-	$OBJ =& get_instance();
+	$OBJ = get_instance();
 	return $OBJ->front->front_index();
 }
 
 function front_exhibit()
 {
-	$OBJ =& get_instance();
+	$OBJ = get_instance();
 	return $OBJ->front->front_exhibit();
 }
 
 function front_background()
 {
-	$OBJ =& get_instance();
+	$OBJ = get_instance();
 	return $OBJ->front->front_background();
 }
 
 function front_lib_css()
 {
-	$OBJ =& get_instance();
+	$OBJ = get_instance();
 	return $OBJ->front->front_lib_css();
 }
 
 function front_lib_js()
 {
-	$OBJ =& get_instance();
+	$OBJ = get_instance();
 	return $OBJ->front->front_lib_js();
 }
 
 function front_dyn_css()
 {
-	$OBJ =& get_instance();
+	$OBJ = get_instance();
 	return $OBJ->front->front_dyn_css();
 }
 
 function front_dyn_js()
 {
-	$OBJ =& get_instance();
+	$OBJ = get_instance();
 	return $OBJ->front->front_dyn_js();
 }
 
@@ -88,7 +88,7 @@ function getNavigation()
 // chronological navigation type
 function chronological()
 {
-	$OBJ =& get_instance();
+	$OBJ = get_instance();
 	global $rs, $default;
 
 	$pages = $OBJ->db->fetchArray("SELECT id, title, url, 
@@ -151,7 +151,7 @@ function chronological()
 // sections navigation
 function sectional()
 {
-	$OBJ =& get_instance();
+	$OBJ = get_instance();
 	global $rs;
 
 	$pages = $OBJ->db->fetchArray("SELECT id, title, url, 
@@ -218,7 +218,7 @@ function backgrounder($color='', $img='', $tile='')
 
 function ndxz_users()
 {
-	$REST =& load_class('rest', TRUE, 'lib');
+	$REST = load_class('rest', TRUE, 'lib');
 	return $REST->indexhibit_user_list();
 }
 

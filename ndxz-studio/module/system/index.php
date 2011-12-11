@@ -260,7 +260,7 @@ class System extends Router
 		}
 
 		// parse it
-		$PARSE =& load_class('parse', TRUE, 'lib');
+		$PARSE = load_class('parse', TRUE, 'lib');
 		$PARSE->vars = $rs;
 		$PARSE->code = $contents;
 		echo $PARSE->parsing();
@@ -272,7 +272,7 @@ class System extends Router
 	function sbmt_upd_user()
 	{
 		global $go;
-		$processor =& load_class('processor', TRUE, 'lib');
+		$processor = load_class('processor', TRUE, 'lib');
 
 		$clean['user_offset'] = $processor->process('user_offset', array('digit'));
 		$clean['user_format'] = $processor->process('user_format', array('notags'));
@@ -346,7 +346,7 @@ class System extends Router
 		}
 		else
 		{
-			$processor =& load_class('processor', TRUE, 'lib');
+			$processor = load_class('processor', TRUE, 'lib');
 			
 			$clean['media_title'] = $processor->process('media_title',array('notags'));
 			$clean['media_x'] = $processor->process('media_x',array('digit'));
@@ -377,7 +377,7 @@ class System extends Router
 		$OBJ->template->errors = TRUE;
 		global $go, $uploads;
 
-		$IMG =& load_class('media', TRUE, 'lib');
+		$IMG = load_class('media', TRUE, 'lib');
 			
 		// +++++++++++++++++++++++++++++++++++++++++++++++++++
 		
@@ -401,7 +401,7 @@ class System extends Router
 					$thetype = array_pop($test);
 					
 					load_helper('output');
-					$URL =& load_class('publish', TRUE, 'lib');
+					$URL = load_class('publish', TRUE, 'lib');
 
 					$URL->title = implode('_', $test);
 					$name = $URL->processTitle();

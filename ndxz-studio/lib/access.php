@@ -38,7 +38,7 @@ class Access
 	*/
 	function settings()
 	{
-		$OBJ =& get_instance();
+		$OBJ = get_instance();
 		
 		$adm['adm_id'] = 1;
 		
@@ -55,7 +55,7 @@ class Access
 	*/
 	function checkLogin()
 	{
-		$OBJ =& get_instance();
+		$OBJ = get_instance();
 	
 		// if logging out
 		if (isset($_POST['logout'])) $this->logout();

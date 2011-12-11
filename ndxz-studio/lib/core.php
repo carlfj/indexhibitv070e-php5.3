@@ -46,7 +46,7 @@ class Core
 		foreach (array('template','access') as $val)
 		{
 			$class = strtolower($val);
-			if (!is_object($class)) $this->$class =& load_class($val, TRUE, 'lib');
+			if (!is_object($class)) $this->$class = load_class($val, TRUE, 'lib');
 			$this->is_loaded[] = $class;
 		}
 	}
@@ -60,7 +60,7 @@ class Core
 	function load_lang()
 	{
 		$class = strtolower('lang');
-		if (!is_object($class)) $this->$class =& load_class($class, TRUE, 'lang');
+		if (!is_object($class)) $this->$class = load_class($class, TRUE, 'lang');
 		$this->is_loaded[] = $class;
 	}
 	
@@ -73,7 +73,7 @@ class Core
 	function load_db()
 	{
 		$class = strtolower('db');
-		if (!is_object($class)) $this->$class =& load_class($class, TRUE, 'db');
+		if (!is_object($class)) $this->$class = load_class($class, TRUE, 'db');
 		$this->is_loaded[] = $class;
 	}
 	
@@ -88,7 +88,7 @@ class Core
 		if ($class == '') return;
 		
 		$class = strtolower($class);
-		if (!is_object($class)) $this->$class =& load_class($class, TRUE, 'lib');
+		if (!is_object($class)) $this->$class = load_class($class, TRUE, 'lib');
 		$this->is_loaded[] = $class;
 	}
 }
