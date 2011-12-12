@@ -1300,14 +1300,14 @@ class Exhibits extends Router
 				// language?
 				// but what if this file was deleted?
 				$clean['obj_itop'] = "<p><%obj_name%><br />
-<a href=\'<%baseurl%><plug:ndxz_rewriter url=\'/about-this-site/\' />\'>" . $this->lang->word('about this site') . "</a></p>";
+<a href=\"<%baseurl%><plug:ndxz_rewriter url=\"/about-this-site/\" />\">" . $this->lang->word('about this site') . "</a></p>";
 			}
 			else
 			{
 				if ($clean['obj_itop'] == '')
 				{
 					$clean['obj_itop'] = "<p><%obj_name%><br />
-<a href=\'<%baseurl%><plug:ndxz_rewriter url=\'/about-this-site/\' />\'>" . $this->lang->word('about this site') . "</a></p>";
+<a href=\"<%baseurl%><plug:ndxz_rewriter url=\"/about-this-site/\" />\">" . $this->lang->word('about this site') . "</a></p>";
 				}
 			}
 

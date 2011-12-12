@@ -199,7 +199,7 @@
 		
 		$sql[] = "INSERT INTO `".PX."objects` (`id`, `object`, `obj_ref_id`, `title`, `content`, `tags`, `header`, `udate`, `pdate`, `creator`, `status`, `process`, `page_cache`, `section_id`, `url`, `ord`, `color`, `bgimg`, `hidden`, `current`, `images`, `thumbs`, `format`, `break`, `tiling`, `year`, `report`) VALUES (2, 'exhibit', 0, 'About this site', '<plug:ndxz_users />', '0', '', '".getNow()."', '".getNow()."', 1, 1, 1, 0, 1, '/about-this-site/', 1, 'ffffff', '', 1, 0, 9999, 200, 'grow', 0, 1, '2007', 0);";
 		
-		$sql[] = "INSERT INTO `".PX."objects_prefs` (`obj_id`, `obj_ref_type`, `obj_name`, `obj_email`, `obj_mode`, `obj_itop`, `obj_ibot`, `obj_apikey`, `obj_theme`, `obj_org`) VALUES (1, 'exhibit', '".addslashes($c['n_site'])."', '', 0, '<p><%obj_name%><br /><a href=\'<%baseurl%><plug:ndxz_rewriter url=\'/about-this-site/\' />\'>About This Site</a></p>', '<p>Copyright 2007</p>', '', 'eatock', 0);";
+		$sql[] = "INSERT INTO `".PX."objects_prefs` (`obj_id`, `obj_ref_type`, `obj_name`, `obj_email`, `obj_mode`, `obj_itop`, `obj_ibot`, `obj_apikey`, `obj_theme`, `obj_org`) VALUES (1, 'exhibit', '".addslashes($c['n_site'])."', '', 0, '<p><%obj_name%><br /><a href=\"<%baseurl%><plug:ndxz_rewriter url=\"/about-this-site/\" />\">About This Site</a></p>', '<p>Copyright 2007</p>', '', 'eatock', 0);";
 		
 		$sql[] = "INSERT INTO `".PX."sections` (`secid`, `section`, `sec_ord`, `sec_disp`, `sec_date`, `sec_path`, `sec_desc`, `sec_proj`, `sec_report`) VALUES 
 		(1, 'root', 3, 1, '".getNow()."', '/', 'Info', 0, 0), 
